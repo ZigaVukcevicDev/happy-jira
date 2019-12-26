@@ -21,13 +21,17 @@ CLI tool for communicating with JIRA API.
 
 ### Usage
 
-| Command                     	| Description                                                                             	|
-|-----------------------------	|-----------------------------------------------------------------------------------------	|
-| `happy-jira <issue> [id]`   	| Showing issue details.<br><br>Usage sample: `happy-jira issue --id JIRA-ISSUE-ID`            	|
-| `happy-jira <worklog> [id]` 	| Showing worklog of issue.<br><br>Usage sample: `happy-jira worklog --id JIRA-ISSUE-ID`       	|
-| `happy-jira <config>`       	| Setting username and token for Jira authentication.<br><br>Usage sample: `happy-jira config` 	|
+#### Commands
 
+| Command | Description |
+|------------------------------|------------------------------------------------|
+| `happy-jira config [--reset]`| Setting username and token for Jira authentication.<br>Sample: `happy-jira config`<br><br>Reseting username and token.<br>Sample: `happy-jira config --reset` |
+| `happy-jira issue --id`      | Showing issue details.<br>Sample: `happy-jira issue --id JIRA-ISSUE-ID`      |
+| `happy-jira worklog --id`    | Showing worklog of issue.<br>Sample: `happy-jira worklog --id JIRA-ISSUE-ID` |
 
-Options:
-  --version  Show version number                                       [boolean]
-  --help     Show help                                                 [boolean]
+#### Options
+
+| Options     | Description |
+|-------------|-----------------------------------------------------------------|
+| `--version` | Showing version number.<br>Usage sample: `happy-jira --version` |
+| `--help`    | Showing help.<br>Usage sample: `happy-jira --help`              |

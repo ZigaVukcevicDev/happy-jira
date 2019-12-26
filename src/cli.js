@@ -10,10 +10,25 @@ export function cli(args) {
   yargs
     .scriptName("happy-jira")
     .usage('$0 <command> [options]')
+    // Config
+    .command(
+      'config [--reset]',
+      'Setting username and token for Jira authentication.\nSample: `happy-jira config`\n\nReseting username and token.\nSample: `happy-jira config --reset`\n',
+      (yargs) => {
+        yargs.positional('config', {
+          type: 'string',
+          default: 'None',
+          describe: 'Set config'
+        })
+      }, (argv) => {
+        if (argv.config) {
+          config(argv);
+        }
+      })
     // Issue
     .command(
-      '<issue> [id]',
-      'Showing issue details.\n Usage sample: `happy-jira issue --id JIRA-ISSUE-ID`',
+      'issue --id',
+      'Showing issue details.\nSample: `happy-jira issue --id JIRA-ISSUE-ID`\n',
       (yargs) => {
         yargs.positional('issue', {
           type: 'string',
@@ -27,8 +42,8 @@ export function cli(args) {
     })
     // Worklog
     .command(
-      '<worklog> [id]',
-      'Showing worklog of issue.\n Usage sample: `happy-jira worklog --id JIRA-ISSUE-ID`',
+      'worklog --id',
+      'Showing worklog of issue.\nSample: `happy-jira worklog --id JIRA-ISSUE-ID`',
       (yargs) => {
         yargs.positional('worklog', {
           type: 'string',
@@ -38,21 +53,6 @@ export function cli(args) {
     }, (argv) => {
       if (argv.worklog) {
         worklog(argv);
-      }
-    })
-   // Config
-   .command(
-    '<config>',
-    'Setting username and token for Jira authentication.\n Usage sample: `happy-jira config`',
-    (yargs) => {
-      yargs.positional('config', {
-        type: 'string',
-        default: 'None',
-        describe: 'Set config'
-      })
-    }, (argv) => {
-      if (argv.config) {
-        config(argv);
       }
     })
     .help()
