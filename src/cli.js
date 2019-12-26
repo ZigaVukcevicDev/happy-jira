@@ -43,7 +43,7 @@ export function cli(args) {
    // Config
    .command(
     '<config>',
-    'Setting username and token for Jira authentication\n Usage sample: `happy-jira config`',
+    'Setting username and token for Jira authentication.\n Usage sample: `happy-jira config`',
     (yargs) => {
       yargs.positional('config', {
         type: 'string',
