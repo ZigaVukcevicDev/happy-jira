@@ -1,0 +1,31 @@
+{
+  "name": "@be-codified/happy-jira",
+  "version": "0.0.12",
+  "description": "XXXX",
+  "author": "Ziga Vukcevic",
+  "license": "MIT",
+  "repository": "be-codified/happy-jira",
+  "main": "./src/index.js",
+  "keywords": [
+    "jira",
+    "npm",
+    "cli"
+  ],
+  "bin": {
+    "happy-jira": "./bin/happy-jira.js"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "chalk": "^3.0.0",
+    "cli-spinner": "^0.2.10",
+    "cli-spinners": "^2.2.0",
+    "configstore": "^5.0.0",
+    "esm": "^3.2.25",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.1",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "ora": "^4.0.3",
+    "yargs": "^15.0.2"
+  }
+}
