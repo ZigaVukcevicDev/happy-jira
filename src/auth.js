@@ -1,20 +1,24 @@
 import Configstore from 'configstore';
+
 const packageJson = require('../package.json');
 
+const { log } = console;
 const config = new Configstore(packageJson.name);
+const subdomain = config.get('subdomain');
 const username = config.get('username');
 const token = config.get('token');
 
-const auth = () => {
-  console.log('Checking credentials... ');
+const isConfigSet = () => {
+  let isSet = true;
 
-  if (!username && !token) {
-    console.log('No credentials found.');
-    return false;
-  } else {
-    console.log('Credentials found.');
-    return true;
+  if (!subdomain && !username && !token) {
+    log('No config values found. Use `happy-jira config` to set them.');
+    isSet = false;
   }
-}
 
-export { auth, username, token };
+  return isSet;
+};
+
+export {
+  isConfigSet, subdomain, username, token,
+};

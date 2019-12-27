@@ -1,11 +1,15 @@
 {
   "name": "@be-codified/happy-jira",
-  "version": "0.0.15",
-  "description": "XXXX",
+  "version": "0.0.14",
+  "description": "CLI tool for communicating with JIRA API.",
   "author": "Ziga Vukcevic",
   "license": "MIT",
-  "repository": "be-codified/happy-jira",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/be-codified/happy-jira.git"
+  },
   "main": "./src/index.js",
+  "module": "./src/main.js",
   "keywords": [
     "jira",
     "npm",
@@ -27,5 +31,13 @@
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
     "yargs": "^15.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/be-codified/happy-jira/issues"
+  },
+  "homepage": "https://github.com/be-codified/happy-jira#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

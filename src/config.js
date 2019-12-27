@@ -1,6 +1,9 @@
 import inquirer from 'inquirer';
 import Configstore from 'configstore';
+
 const packageJson = require('../package.json');
+
+const { log } = console;
 
 const config = (argv) => {
   if (argv.reset) {
@@ -8,18 +11,21 @@ const config = (argv) => {
       .prompt([
         {
           type: 'confirm',
-          message: 'Do you want to reset credentials?',
-          name: 'reset'
+          message: 'Do you want to reset config?',
+          name: 'reset',
         },
       ])
-      .then(answers => {
+      .then((answers) => {
         if (answers.reset) {
-          console.log('Reseting credentials.');
-          const config = new Configstore(packageJson.name);
-          config.set('username', null);
-          config.set('token', null);
+          log('Reseting config.');
+
+          const store = new Configstore(packageJson.name);
+
+          store.set('subdomain', null);
+          store.set('username', null);
+          store.set('token', null);
         } else {
-          console.log('Aborting reseting credentials.');
+          log('Reseting config canceled.');
         }
       });
   } else {
@@ -27,26 +33,34 @@ const config = (argv) => {
       .prompt([
         {
           type: 'input',
+          message: 'Enter subdomain (e.g. your-space.atlassian.net):',
+          name: 'subdomain',
+          validate: (value) => (!value.length ? 'Subdomain can\'t be empty.' : true),
+        },
+        {
+          type: 'input',
           message: 'Enter username:',
           name: 'username',
-          validate: (value) => !value.length ? 'Username can\'t be empty.' : true
+          validate: (value) => (!value.length ? 'Username can\'t be empty.' : true),
         },
         {
           type: 'password',
           message: 'Enter token:',
           name: 'token',
           mask: '*',
-          validate: (value) => !value.length ? 'Token can\'t be empty.' : true
-        }
+          validate: (value) => (!value.length ? 'Token can\'t be empty.' : true),
+        },
       ])
-      .then(answers => {
-        const config = new Configstore(packageJson.name);
-        config.set('username', answers.username);
-        config.set('token', answers.token);
+      .then((answers) => {
+        const store = new Configstore(packageJson.name);
 
-        console.log('Credentials successfully set up.');
+        store.set('subdomain', answers.subdomain);
+        store.set('username', answers.username);
+        store.set('token', answers.token);
+
+        log('Config successfully set.');
       });
   }
-}
+};
 
 export default config;

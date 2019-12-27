@@ -1,7 +1,9 @@
 import figlet from 'figlet';
 
+const { log } = console;
+
 const logo = () => {
-  console.log(figlet.textSync('Happy Jira!'), '\n');
-}
+  log(figlet.textSync('Happy Jira!'), '\n');
+};
 
 export default logo;
