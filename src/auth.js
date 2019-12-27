@@ -13,7 +13,7 @@ const isConfigSet = () => {
   let isSet = true;
 
   if (!subdomain && !username && !token) {
-    log(chalk.red('No config values found. Use `happy-jira config` to set them.\n'));
+    log(chalk.red('No config data found. Use `happy-jira config` to set it up.\n'));
     isSet = false;
   }
 

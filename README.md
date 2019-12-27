@@ -25,7 +25,7 @@ CLI tool for communicating with JIRA API.
 
 | Command | Description |
 |------------------------------|------------------------------------------------|
-| `happy-jira config [--reset]`| Setting username and token for Jira authentication.<br>Sample: `happy-jira config`<br><br>Reseting username and token.<br>Sample: `happy-jira config --reset` |
+| `happy-jira config [--reset]`| Setting config data (subdomain, username and token) for Jira authentication.<br>Sample: `happy-jira config`<br><br>Resetting config data.<br>Sample: `happy-jira config --reset` |
 | `happy-jira issue --id=id`      | Showing issue details.<br>Sample: `happy-jira issue --id=JIRA-ISSUE-ID`      |
 | `happy-jira worklog --id=id`    | Showing worklog of issue.<br>Sample: `happy-jira worklog --id=JIRA-ISSUE-ID` |
 

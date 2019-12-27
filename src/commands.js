@@ -13,7 +13,7 @@ const commands = () => {
     // Config
     .command(
       'config [reset]',
-      'Setting username and token for Jira authentication.\nSample: `happy-jira config`\n\nReseting username and token.\nSample: `happy-jira config --reset`\n',
+      'Setting config data (subdomain, username and token) for Jira authentication.\nSample: `happy-jira config`\n\nResetting config data.\nSample: `happy-jira config --reset`\n',
       (params) => {
         params.positional('config', {
           type: 'string',
