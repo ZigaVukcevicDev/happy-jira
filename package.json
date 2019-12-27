@@ -1,6 +1,6 @@
 {
   "name": "@be-codified/happy-jira",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "CLI tool for communicating with JIRA API.",
   "author": "Ziga Vukcevic",
   "license": "MIT",
