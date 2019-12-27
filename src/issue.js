@@ -2,6 +2,8 @@ import fetch from 'node-fetch';
 import { encode } from 'base-64';
 import chalk from 'chalk';
 import ora from 'ora';
+import moment from 'moment';
+import formatTimeHHmm from './helpers/format-time-hh-mm';
 import {
   isConfigSet, subdomain, username, token,
 } from './auth';
@@ -30,8 +32,17 @@ const issue = (argv) => {
         }
       })
       .then((json) => {
-        // log(json);
-        log('Project name:', json.fields.project.name);
+        spinner.stop();
+
+        const { fields } = json;
+
+        log('ID:          ', argv.id);
+        log('Project name:', fields.project.name);
+        log('Created:     ', moment(fields.created).format('dddd MM-DD-YYYY'));
+        log('Assignee:    ', fields.assignee.displayName);
+        log('Summary:     ', fields.summary);
+        log('Status:      ', fields.status.name);
+        log('Total time:  ', formatTimeHHmm(fields.timespent));
       })
       .catch((error) => {
         if (error.code === 'ENOTFOUND') {
