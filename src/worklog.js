@@ -51,7 +51,15 @@ const worklog = (argv) => {
 
         log('Total time:', formatTimeHHmm(timeTotal));
       })
-      .catch((error) => log(error));
+      .catch((error) => {
+        if (error.code === 'ENOTFOUND') {
+          spinner.stop();
+          log(chalk.red(`Subdomain ${subdomain} has not been found. Are you connected to Internet?\n`));
+        } else {
+          spinner.stop();
+          log(error);
+        }
+      });
   }
 };
 

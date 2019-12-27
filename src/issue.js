@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import { encode } from 'base-64';
 import chalk from 'chalk';
+import ora from 'ora';
 import {
   isConfigSet, subdomain, username, token,
 } from './auth';
@@ -9,7 +10,8 @@ const { log } = console;
 
 const issue = (argv) => {
   if (isConfigSet()) {
-    log(chalk.yellow(`\nGetting issue with id ${argv.id}`));
+    const spinner = ora('Fetching...').start();
+    // log(chalk.yellow(`\nGetting issue with id ${argv.id}`));
 
     fetch(`https://${subdomain}/rest/api/3/issue/${argv.id}`, {
       method: 'get',
@@ -31,7 +33,15 @@ const issue = (argv) => {
         // log(json);
         log('Project name:', json.fields.project.name);
       })
-      .catch((error) => log(error));
+      .catch((error) => {
+        if (error.code === 'ENOTFOUND') {
+          spinner.stop();
+          log(chalk.red(`Subdomain ${subdomain} has not been found. Are you connected to Internet?\n`));
+        } else {
+          spinner.stop();
+          log(error);
+        }
+      });
   }
 };
 

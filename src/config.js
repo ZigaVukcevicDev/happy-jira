@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import Configstore from 'configstore';
+import chalk from 'chalk';
 
 const packageJson = require('../package.json');
 
@@ -17,7 +18,7 @@ const config = (argv) => {
       ])
       .then((answers) => {
         if (answers.reset) {
-          log('Reseting config.');
+          log(chalk.green('Config has been resetted.'));
 
           const store = new Configstore(packageJson.name);
 
@@ -25,7 +26,7 @@ const config = (argv) => {
           store.set('username', null);
           store.set('token', null);
         } else {
-          log('Reseting config canceled.');
+          log(chalk.red('Resetting config canceled.'));
         }
       });
   } else {
@@ -58,7 +59,7 @@ const config = (argv) => {
         store.set('username', answers.username);
         store.set('token', answers.token);
 
-        log('Config successfully set.');
+        log(chalk.green('\nConfig has been successfully set.\n'));
       });
   }
 };

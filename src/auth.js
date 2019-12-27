@@ -1,4 +1,5 @@
 import Configstore from 'configstore';
+import chalk from 'chalk';
 
 const packageJson = require('../package.json');
 
@@ -12,7 +13,7 @@ const isConfigSet = () => {
   let isSet = true;
 
   if (!subdomain && !username && !token) {
-    log('No config values found. Use `happy-jira config` to set them.');
+    log(chalk.red('No config values found. Use `happy-jira config` to set them.\n'));
     isSet = false;
   }
 

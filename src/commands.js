@@ -4,8 +4,7 @@ import logo from './logo';
 import issue from './issue';
 import worklog from './worklog';
 
-// eslint-disable-next-line import/prefer-default-export
-export function cli(args) {
+const commands = () => {
   logo();
 
   yargs // eslint-disable-line no-unused-expressions
@@ -13,7 +12,7 @@ export function cli(args) {
     .usage('$0 <command> [options]')
     // Config
     .command(
-      '<config> [reset]',
+      'config [reset]',
       'Setting username and token for Jira authentication.\nSample: `happy-jira config`\n\nReseting username and token.\nSample: `happy-jira config --reset`\n',
       (params) => {
         params.positional('config', {
@@ -29,8 +28,8 @@ export function cli(args) {
     )
     // Issue
     .command(
-      '<issue> [id]',
-      'Showing issue details.\nSample: `happy-jira issue --id JIRA-ISSUE-ID`\n',
+      'issue [id]',
+      'Showing issue details.\nSample: `happy-jira issue --id=JIRA-ISSUE-ID`\n',
       (params) => {
         params.positional('issue', {
           type: 'string',
@@ -45,8 +44,8 @@ export function cli(args) {
     )
     // Worklog
     .command(
-      '<worklog> [id]',
-      'Showing worklog of issue.\nSample: `happy-jira worklog --id JIRA-ISSUE-ID`',
+      'worklog [id]',
+      'Showing worklog of issue.\nSample: `happy-jira worklog --id=JIRA-ISSUE-ID`',
       (params) => {
         params.positional('worklog', {
           type: 'string',
@@ -59,6 +58,9 @@ export function cli(args) {
         }
       },
     )
+    // Help
     .help()
     .argv;
 };
+
+export { commands }; // eslint-disable-line import/prefer-default-export
