@@ -22,21 +22,19 @@ const worklog = (argv) => {
       },
     })
       .then((res) => {
+        spinner.stop();
+
         if (res.status === 401) {
-          spinner.stop();
           throw chalk.red('Authentication failed, check your config.');
         } else if (res.status === 404) {
-          spinner.stop();
-          throw chalk.red('Issue not found.');
+          throw chalk.red(`Issue ${argv.id} not found.\n`);
         } else if (res.status === 200) {
-          log(chalk.yellow(`\nGetting worklog of issue with id ${argv.id}`));
           return res.json();
         } else {
           return false;
         }
       })
       .then((json) => {
-        spinner.stop();
         let timeTotal = 0;
 
         json.worklogs.forEach((item) => {
@@ -52,11 +50,11 @@ const worklog = (argv) => {
         log('Total time:', formatTimeHHmm(timeTotal));
       })
       .catch((error) => {
+        spinner.stop();
+
         if (error.code === 'ENOTFOUND') {
-          spinner.stop();
           log(chalk.red(`Subdomain ${subdomain} has not been found. Are you connected to Internet?\n`));
         } else {
-          spinner.stop();
           log(error);
         }
       });

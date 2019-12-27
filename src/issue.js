@@ -23,8 +23,12 @@ const issue = (argv) => {
       },
     })
       .then((res) => {
-        if (res.status === 404) {
-          throw chalk.red('Issue not found.');
+        spinner.stop();
+
+        if (res.status === 401) {
+          throw chalk.red('Authentication failed, check your config.');
+        } else if (res.status === 404) {
+          throw chalk.red(`Issue ${argv.id} not found.\n`);
         } else if (res.status === 200) {
           return res.json();
         } else {
@@ -32,8 +36,6 @@ const issue = (argv) => {
         }
       })
       .then((json) => {
-        spinner.stop();
-
         const { fields } = json;
 
         log('ID:          ', argv.id);
@@ -45,11 +47,11 @@ const issue = (argv) => {
         log('Total time:  ', formatTimeHHmm(fields.timespent));
       })
       .catch((error) => {
+        spinner.stop();
+
         if (error.code === 'ENOTFOUND') {
-          spinner.stop();
           log(chalk.red(`Subdomain ${subdomain} has not been found. Are you connected to Internet?\n`));
         } else {
-          spinner.stop();
           log(error);
         }
       });
