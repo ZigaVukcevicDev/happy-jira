@@ -17,6 +17,12 @@ CLI tool for communicating with JIRA API.
 
 `npm i @be-codified/happy-jira -g`
 
+Set up config
+
+`happy-jira config`
+
+Enter subdomain, username and token. See [how set token](https://confluence.atlassian.com/cloud/api-tokens-938839638.html) in Jira.
+
 ### Usage
 
 #### Commands
