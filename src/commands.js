@@ -4,12 +4,18 @@ import logo from './logo';
 import issue from './issue';
 import worklog from './worklog';
 
+const { log } = console;
+
 const commands = () => {
   logo();
 
   yargs // eslint-disable-line no-unused-expressions
     .scriptName('happy-jira')
     .usage('$0 <command> [options]')
+    // Default
+    .command('$0', 'default command', () => {}, () => {
+      log('Run `happy-jira --help` to see options.\n');
+    })
     // Config
     .command(
       'config [reset]',
