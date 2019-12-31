@@ -1,5 +1,5 @@
-☐ Document worklog command
-☐ Check if comment attr is given
+☐ Edit documentation for better understanding
+☐ Check if comment attr is given in worklog command
 ☐ Try to refactor with use of yargs (prompts, args validation etc.)
 ✔ Refactor helper format time @done(19-12-31 12:03)
 ✔ Try to post 1d 1h 1m in seconds and check @done(19-12-31 12:02)

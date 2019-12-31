@@ -50,8 +50,8 @@ const commands = () => {
     )
     // Worklog
     .command(
-      'worklog [id] [list]',
-      'Showing worklog of issue.\nSample: `happy-jira worklog --id=JIRA-ISSUE-ID`',
+      'worklog [id] [list] [time] [comment]',
+      'Showing worklog of issue\nSample: `happy-jira worklog --id=JIRA-ISSUE-ID --list`\n\nAdding worklog\nSample: `happy-jira worklog --id=JIRA-ISSUE-ID --time=3600 --comment="Worklog comment."`\n',
       (params) => {
         params.positional('worklog', {
           type: 'string',
