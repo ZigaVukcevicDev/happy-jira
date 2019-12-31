@@ -50,7 +50,7 @@ const commands = () => {
     )
     // Worklog
     .command(
-      'worklog [id]',
+      'worklog [id] [list]',
       'Showing worklog of issue.\nSample: `happy-jira worklog --id=JIRA-ISSUE-ID`',
       (params) => {
         params.positional('worklog', {

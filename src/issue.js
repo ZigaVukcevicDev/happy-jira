@@ -3,7 +3,7 @@ import { encode } from 'base-64';
 import chalk from 'chalk';
 import ora from 'ora';
 import moment from 'moment';
-import formatTimeHHmm from './helpers/format-time-hh-mm';
+import secondsToTime from './helpers/seconds-to-time';
 import {
   isConfigSet, subdomain, username, token,
 } from './auth';
@@ -46,7 +46,7 @@ const issue = (argv) => {
           log('Assignee:       ', fields.assignee.displayName);
           log('Summary:        ', fields.summary);
           log('Status:         ', fields.status.name);
-          log('Total worklog:  ', formatTimeHHmm(fields.timespent));
+          log('Total worklog:  ', secondsToTime(fields.timespent));
         })
         .catch((error) => {
           spinner.stop();
