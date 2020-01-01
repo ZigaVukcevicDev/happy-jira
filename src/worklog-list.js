@@ -57,7 +57,6 @@ const worklogList = (id) => {
         );
 
         timeTotal += item.timeSpentSeconds;
-        log(timeTotal);
       });
 
       log(table.toString());

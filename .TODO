@@ -1,5 +1,14 @@
 ☐ Edit documentation for better understanding
+☐ Make worklog excepts "1d 1h 30m" instead of seconds, create validation
 ☐ Check if comment attr is given in worklog command
 ☐ Try to refactor with use of yargs (prompts, args validation etc.)
 ✔ Refactor helper format time @done(19-12-31 12:03)
 ✔ Try to post 1d 1h 1m in seconds and check @done(19-12-31 12:02)
+
+☐ Batch import from spreadsheet
+  ☐ Create spreadsheet (create it public but not indexed) or use auth
+  ☐ Create proper columns
+  ☐ Create connection with node
+  ☐ Create command for batch
+  ☐ Create preflight what will happen on confirm
+  ☐ Create script for batch and log procedure
