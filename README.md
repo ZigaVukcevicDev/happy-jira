@@ -2,15 +2,6 @@
 
 CLI tool for communicating with JIRA API.
 
-```
- _   _                               _ _
-| | | | __ _ _ __  _ __  _   _      | (_)_ __ __ _
-| |_| |/ _` | '_ \| '_ \| | | |  _  | | | '__/ _` |
-|  _  | (_| | |_) | |_) | |_| | | |_| | | | | (_| |
-|_| |_|\__,_| .__/| .__/ \__, |  \___/|_|_|  \__,_|
-            |_|   |_|    |___/
-```
-
 ### Installling
 
 `npm i @be-codified/happy-jira -g`
@@ -22,6 +13,15 @@ Set up config
 Enter subdomain, username and token. See [how set token](https://confluence.atlassian.com/cloud/api-tokens-938839638.html) in Jira.
 
 ### Usage
+
+```
+ _   _                               _ _
+| | | | __ _ _ __  _ __  _   _      | (_)_ __ __ _
+| |_| |/ _` | '_ \| '_ \| | | |  _  | | | '__/ _` |
+|  _  | (_| | |_) | |_) | |_| | | |_| | | | | (_| |
+|_| |_|\__,_| .__/| .__/ \__, |  \___/|_|_|  \__,_|
+            |_|   |_|    |___/
+```
 
 #### Commands
 
