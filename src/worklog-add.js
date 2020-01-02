@@ -32,7 +32,7 @@ const worklogAdd = (id, time, comment) => {
           },
         ],
       },
-      started: '2019-12-30T05:20:32.998+0000',
+      started: new Date().toISOString,
     }),
   })
     .then((res) => {

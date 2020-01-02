@@ -56,7 +56,7 @@ const commands = () => {
         params.positional('worklog', {
           type: 'string',
           default: 'None',
-          describe: 'Get worklog',
+          describe: 'Get or add worklog',
         });
       }, (argv) => {
         if (argv.worklog) {
